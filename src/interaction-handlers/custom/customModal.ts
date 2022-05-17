@@ -46,7 +46,9 @@ export class ModalInteractionHandler extends CustomInteractionHandler {
 						flex: league.find((entry) => entry.queueType === 'RANKED_FLEX_SR')
 					});
 
-				return Boolean(league.find((l) => l.queueType === Constants.Queues.RANKED_SOLO_5x5))
+				return Boolean(user?.leaderSet)
+					? { summonerName: user?.name, rank: user?.leaderSet?.rank, tier: user?.leaderSet?.tier }
+					: Boolean(league.find((l) => l.queueType === Constants.Queues.RANKED_SOLO_5x5))
 					? league.find((l) => l.queueType === Constants.Queues.RANKED_SOLO_5x5)
 					: Boolean(league.find((l) => l.queueType === Constants.Queues.RANKED_FLEX_SR))
 					? league.find((l) => l.queueType === Constants.Queues.RANKED_FLEX_SR)
