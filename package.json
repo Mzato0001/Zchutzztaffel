@@ -37,6 +37,10 @@
     "watch:start": "tsc-watch --onSuccess \"node ./dist/index.js\"",
     "format": "prettier --write \"src/**/*.ts\""
   },
+  "engines": {
+    "node": "16.x",
+    "yarn": "3.x"
+  },
   "prettier": "@sapphire/prettier-config",
   "packageManager": "yarn@3.2.1"
 }
