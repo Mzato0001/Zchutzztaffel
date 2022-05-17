@@ -45,7 +45,7 @@ export default class TeamCommand extends Command {
 						.setCustomId('connectRank')
 						.setStyle('SHORT')
 						.setPlaceholder('ランクを入力してください。	既定はサモナーのランク(DUO)です。')
-						.setValue(user?.leaderSet?.tier || user?.solo?.tier || '')
+						.setValue(user?.leaderSet?.tier || '')
 				),
 				new MessageActionRow<ModalActionRowComponent>().addComponents(
 					new TextInputComponent()
@@ -53,7 +53,7 @@ export default class TeamCommand extends Command {
 						.setCustomId('connectDivision')
 						.setStyle('SHORT')
 						.setPlaceholder('ティアを入力してください。	既定はサモナーのティア(DUO)です。')
-						.setValue(user?.leaderSet?.rank || user?.solo?.rank || '')
+						.setValue(user?.leaderSet?.rank || '')
 				)
 			);
 
