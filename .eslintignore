@@ -1,0 +1,6 @@
+node_modules/
+**/dist/**/*.js
+**/docs/**/*.js
+**/build/**/*.js
+**/*.d.ts
+jest*

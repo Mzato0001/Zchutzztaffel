@@ -1,0 +1,18 @@
+import { join } from 'path';
+
+export const rootDir = join(__dirname, '..', '..');
+export const srcDir = join(rootDir, 'src');
+
+export const EMOJIS = {
+	RANKS: {
+		IRON: '975767130605756526',
+		BRONZE: '975767127833337966',
+		SILVER: '975767127967539290',
+		GOLD: '975767127678148618',
+		PLATINUM: '975767128147898448',
+		DIAMOND: '975767127673938030',
+		MASTER: '975767127627804713',
+		GRANDMASTER: '975767128215015444',
+		CHALLENGER: '975767128319881296'
+	}
+};

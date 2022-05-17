@@ -1,0 +1,113 @@
+{
+	"Create a command structure": {
+		"prefix": "command",
+		"body": [
+			"import { ContextMenuCommandBuilder, SlashCommandBuilder } from '@discordjs/builders';",
+			"import { ApplyOptions } from '@sapphire/decorators';",
+			"import {",
+			"    ApplicationCommandRegistry, Command, CommandOptions, RegisterBehavior",
+			"} from '@sapphire/framework';",
+			"",
+			"import type { CommandInteraction } from 'discord.js';",
+			"",
+			"@ApplyOptions<CommandOptions>({",
+			"    name: '${TM_FILENAME_BASE/(\\w*)/${1:/downcase}/}',",
+			"    description: '${2:description}',",
+			"    preconditions: ['${1|Defer,EphemeralDefer|}'],",
+			"    requiredClientPermissions: ['USE_EXTERNAL_EMOJIS'],",
+			"    requiredUserPermissions: ['USE_EXTERNAL_EMOJIS'],",
+			"})",
+			"export default class ${TM_FILENAME_BASE/^(\\w*)$/${1:/capitalize}/}Command extends Command {",
+			"    public override registerApplicationCommands(registry: ApplicationCommandRegistry) {",
+			"        $0",
+			"    }",
+			"",
+			"    public async chatInputRun(interaction: CommandInteraction) {",
+			"",
+			"    }",
+			"}",
+			""
+		],
+		"description": "Create a command structure"
+	},
+	"Create listener structure": {
+		"prefix": "listener",
+		"body": [
+			"import { Listener } from '@sapphire/framework';",
+			"",
+			"import type { } from 'discord.js';",
+			"",
+			"export default class ${TM_FILENAME_BASE/^(\\w*)$/${1:/capitalize}/}Listener extends Listener {",
+			"    public constructor(context: Listener.Context, options: Listener.Options) {",
+			"        super(context, {",
+			"            ...options,",
+			"            name: '${TM_FILENAME_BASE/^(\\w*)$/${1:/capitalize}/}'",
+			"        });",
+			"    }",
+			"",
+			"    public async run() {",
+			"        $0",
+			"    }",
+			"}",
+			""
+		],
+		"description": "Create listener structure"
+	},
+	"Create precondition structure": {
+		"prefix": "precondition",
+		"body": [
+			"import { PieceContext, Precondition } from '@sapphire/framework';",
+			"",
+			"import type { CommandInteraction } from 'discord.js';",
+			"",
+			"export default class ${TM_FILENAME_BASE/^(\\w*)$/${1:/capitalize}/}Precondition extends Precondition {",
+			"    public constructor(context: PieceContext, options: Precondition.Options) {",
+			"        super(context, {",
+			"            ...options,",
+			"            name: '${TM_FILENAME_BASE/^(\\w*)$/${1:/capitalize}/}'",
+			"        });",
+			"    }",
+			"",
+			"    public async chatInputRun(interaction: CommandInteraction) {",
+			"        $0",
+			"    }",
+			"}",
+			"",
+			"declare module '@sapphire/framework' {",
+			"    interface Preconditions {",
+			"        ${TM_FILENAME_BASE/^(\\w*)$/${1:/capitalize}/}: never;",
+			"    }",
+			"}",
+			""
+		],
+		"description": "Create precondition structure"
+	},
+	"Register a Slash Command": {
+		"prefix": "slashBuilder",
+		"body": [
+			"registry.registerChatInputCommand(",
+			"    new SlashCommandBuilder()",
+			"        .setName(this.name)",
+			"        .setDescription(this.description),",
+			"    {",
+			"        idHints: [''],",
+			"        behaviorWhenNotIdentical: RegisterBehavior.Overwrite",
+			"    });"
+		],
+		"description": "Register a Slash Command"
+	},
+	"Register a Context Menu Command": {
+		"prefix": "contextBuilder",
+		"body": [
+		  "registry.registerContextMenuCommand(",
+		  "    new ContextMenuCommandBuilder()",
+		  "        .setName(this.name)",
+		  "        .setType(${1|2,3|}),",
+		  "    {",
+		  "        idHints: [''],",
+		  "        behaviorWhenNotIdentical: RegisterBehavior.Overwrite",
+		  "    });"
+		],
+		"description": "Register a Context Menu Command"
+	  }
+}
