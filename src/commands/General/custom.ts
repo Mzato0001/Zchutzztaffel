@@ -31,9 +31,9 @@ export default class TeamCommand extends Command {
 						.setStyle('PARAGRAPH')
 						.setPlaceholder(
 							`チャット欄をペーストしてください。例
-							ZZ Mzatoがロビーに参加しました
-							ZZ Caimy丨Z丨がロビーに参加しました
-							あと8人`
+ZZ Mzatoがロビーに参加しました
+ZZ Caimy丨Z丨がロビーに参加しました
+あと8人以上がペーストしてください。`
 						)
 				)
 			);
