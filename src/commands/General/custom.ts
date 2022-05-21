@@ -29,7 +29,12 @@ export default class TeamCommand extends Command {
 						.setCustomId('memberInput')
 						.setRequired(true)
 						.setStyle('PARAGRAPH')
-						.setPlaceholder('チャット欄をペーストしてください。')
+						.setPlaceholder(
+							`チャット欄をペーストしてください。例
+							ZZ Mzatoがロビーに参加しました
+							ZZ Caimy丨Z丨がロビーに参加しました
+							あと8人`
+						)
 				)
 			);
 
